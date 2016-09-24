@@ -1,0 +1,61 @@
+doctype html
+html(lang='ru-RU')
+	head
+		meta(charset='UTF-8')
+		//- Указание браузеру использовать самую последнюю версию
+		meta(http-equiv='X-UA-Compatible', content="IE=edge")
+		//- Указание использовать для сайта ширину экрана
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		//SEO
+		//block description
+		//block keywords
+		meta(name="author" content="WEB-developer Valentin Gordienko")
+		//TITLE
+		title
+		//FAVICONS
+		link(rel="icon" type="image/vdn.microsoft.ico" href="images/favicon.ico" sizes="16x16")
+		//CSS STYLESHEETS
+		//build:css css/vendor.min.css
+		//bower:css
+		//endbower
+		//endbuild
+		//build:css css/main.min.css
+		link(rel="stylesheet" href="fonts/stylesheet.css")
+		link(rel="stylesheet" href="css/main.css")
+		//endbuild
+	body
+		<!--[if lt IE8]>
+		<p class="oldBrowser">Ваш браузер устарел. Для корректного отображения сайта воспользуйтесь более современным браузером.</p>
+		<![endif]-->
+		div.wrapper#friends
+			a.button-link(href="/rest.html") LocalStorage Table
+			h1.header
+				|Ваши друзья в VK.com (
+				span(v-cloak) {{count}} чел.
+				|)
+			table.table
+				thead.thead
+					tr.table__row.table__row--header
+						th.table__row-item.table__row-item--id №
+						th.table__row-item.table__row-item--uid id
+						th.table__row-item.table__row-item--firstName ФИО
+						th.table__row-item.table__row-item--born Дата рождения
+						th.table__row-item.table__row-item--born Город
+				tbody.tbody
+					tr.table__row(v-for="item in friends" v-cloak)
+						td.table__row-item {{$index}}
+						td.table__row-item {{item.id}}
+						td.table__row-item
+							a.link(href="https://vk.com/id{{item.id}}" target='blank') {{item.first_name}} {{item.last_name}}
+						td.table__row-item {{ item.bdate ? item.bdate : "Не указан."}}
+						td.table__row-item {{ item.city ? item.city.title : "Не указан."}}
+
+		//build:js js/vendor.min.js
+		script(src="//vk.com/js/api/openapi.js" type="text/javascript")
+		script(src="http://cdn.jsdelivr.net/vue/1.0.26/vue.min.js" type="text/javascript")
+		//bower:js
+		//endbower
+		//endbuild
+		//build:js js/main.min.js
+		script(src="js/main.js")
+		//endbuild

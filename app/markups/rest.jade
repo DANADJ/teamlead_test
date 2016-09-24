@@ -1,0 +1,85 @@
+doctype html
+html(lang='ru-RU')
+	head
+		meta(charset='UTF-8')
+		//- Указание браузеру использовать самую последнюю версию
+		meta(http-equiv='X-UA-Compatible', content="IE=edge")
+		//- Указание использовать для сайта ширину экрана
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		//SEO
+		//block description
+		//block keywords
+		meta(name="author" content="WEB-developer Valentin Gordienko")
+		//TITLE
+		title REST table & LS
+		//FAVICONS
+		link(rel="icon" type="image/vdn.microsoft.ico" href="images/favicon.ico" sizes="16x16")
+		//CSS STYLESHEETS
+		//build:css css/vendor.min.css
+		//bower:css
+		//endbower
+		//endbuild
+		//build:css css/main.min.css
+		link(rel="stylesheet" href="fonts/stylesheet.css")
+		link(rel="stylesheet" href="css/main.css")
+		//endbuild
+	body
+		<!--[if lt IE8]>
+		<p class="oldBrowser">Ваш браузер устарел. Для корректного отображения сайта воспользуйтесь более современным браузером.</p>
+		<![endif]-->
+		div.wrapper#cars
+			a.button-link(href="/") VK-Friends Table
+			h1.header
+				|Автомобили на стоянке (
+				span(v-cloak) {{count}} шт.
+				|)
+			table.table#table-cars
+				thead.thead
+					tr.table__row.table__row--header#table-cars__row--header
+						th.table__row-item.table__row-item--id №
+						th.table__row-item.table__row-item--place Место
+						th.table__row-item.table__row-item--marka Марка
+						th.table__row-item.table__row-item--model Модель
+						th.table__row-item.table__row-item--color Цвет
+						th.table__row-item.table__row-item--number Рег.номер
+						th.table__row-item.table__row-item--opc Действия
+				tfoot.tfoot
+					tr.table__row.table__row--add-car#table__row--add-car(v-cloak)
+						td.table__row-item.table__row-item--id {{nextItem}}
+						td.table__row-item.table__row-item--place
+							input.table__row-item-input#new-car--place(type="text" placeholder="- - - -")
+						td.table__row-item.table__row-item--marka
+							input.table__row-item-input#new-car--marka(type="text" placeholder="- - - -")
+						td.table__row-item.table__row-item--model
+							input.table__row-item-input#new-car--model(type="text" placeholder="- - - -")
+						td.table__row-item.table__row-item--color
+							input.table__row-item-input#new-car--color(type="text" placeholder="- - - -")
+						td.table__row-item.table__row-item--number
+							input.table__row-item-input#new-car--number(type="text" placeholder="- - - -")
+						td.table__row-item.table__row-item--opc
+							button.table__row-item-button.table__row-item-button--add Добавить
+				tbody.tbody(v-cloak)
+					tr.table__row(data-index="{{$index}}" v-for="item in cars")
+						td.table__row-item.table__row-item--id.table__row-item--id-drag(data-index="{{$index}}") {{$index + 1}}
+						td.table__row-item.table__row-item--place
+							input.table__row-item-input(type="text" data-index="{{$index}}" data-input="place" value="{{item.place}}")
+						td.table__row-item.table__row-item--marka
+							input.table__row-item-input(type="text" data-index="{{$index}}" data-input="marka" value="{{item.marka}}")
+						td.table__row-item.table__row-item--model
+							input.table__row-item-input(type="text" data-index="{{$index}}" data-input="model" value="{{item.model}}")
+						td.table__row-item.table__row-item--color
+							input.table__row-item-input(type="text" data-index="{{$index}}" data-input="color" value="{{item.color}}")
+						td.table__row-item.table__row-item--number
+							input.table__row-item-input(type="text" data-index="{{$index}}" data-input="number" value="{{item.number}}")
+						td.table__row-item.table__row-item--opc
+							button.table__row-item-button.table__row-item-button--del(data-index = "{{$index}}") Удалить
+							button.table__row-item-button.table__row-item-button--edit.hide(data-index = "{{$index}}") Сохранить
+
+		//build:js js/vendor.min.js
+		script(src="http://cdn.jsdelivr.net/vue/1.0.26/vue.min.js" type="text/javascript")
+		//bower:js
+		//endbower
+		//endbuild
+		//build:js js/main.min.js
+		script(src="js/rest.js")
+		//endbuild

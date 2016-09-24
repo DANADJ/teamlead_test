@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--SEO-->
+		<!--block description-->
+		<!--block keywords-->
+		<meta name="author" content="WEB-developer Valentin Gordienko">
+		<!--TITLE-->
+		<title></title>
+		<!--FAVICONS-->
+		<link rel="icon" type="image/vdn.microsoft.ico" href="images/favicon.ico" sizes="16x16">
+		<!--CSS STYLESHEETS-->
+		<!--build:css css/vendor.min.css-->
+		<!--bower:css-->
+		<link rel="stylesheet" href="bower/normalize-css/normalize.css" />
+		<!--endbower-->
+		<!--endbuild-->
+		<!--build:css css/main.min.css-->
+		<link rel="stylesheet" href="fonts/stylesheet.css">
+		<link rel="stylesheet" href="css/main.css">
+		<!--endbuild-->
+	</head>
+	<body>
+		<!--[if lt IE8]>
+		<p class="oldBrowser">Ваш браузер устарел. Для корректного отображения сайта воспользуйтесь более современным браузером.</p>
+		<![endif]-->
+		<div id="friends" class="wrapper"><a href="/rest.html" class="button-link">LocalStorage Table</a>
+			<h1 class="header">Ваши друзья в VK.com (<span v-cloak>{{count}} чел.</span>)</h1>
+			<table class="table">
+				<thead class="thead">
+					<tr class="table__row table__row--header">
+						<th class="table__row-item table__row-item--id">№</th>
+						<th class="table__row-item table__row-item--uid">id</th>
+						<th class="table__row-item table__row-item--firstName">ФИО</th>
+						<th class="table__row-item table__row-item--born">Дата рождения</th>
+						<th class="table__row-item table__row-item--born">Город</th>
+					</tr>
+				</thead>
+				<tbody class="tbody">
+					<tr v-for="item in friends" v-cloak class="table__row">
+						<td class="table__row-item">{{$index}}</td>
+						<td class="table__row-item">{{item.id}}</td>
+						<td class="table__row-item"><a href="https://vk.com/id{{item.id}}" target="blank" class="link">{{item.first_name}} {{item.last_name}}</a></td>
+						<td class="table__row-item">{{ item.bdate ? item.bdate : "Не указан."}}</td>
+						<td class="table__row-item">{{ item.city ? item.city.title : "Не указан."}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!--build:js js/vendor.min.js-->
+		<script src="//vk.com/js/api/openapi.js" type="text/javascript"></script>
+		<script src="http://cdn.jsdelivr.net/vue/1.0.26/vue.min.js" type="text/javascript"></script>
+		<!--bower:js-->
+		<!--endbower-->
+		<!--endbuild-->
+		<!--build:js js/main.min.js-->
+		<script src="js/main.js"></script>
+		<!--endbuild-->
+	</body>
+</html>

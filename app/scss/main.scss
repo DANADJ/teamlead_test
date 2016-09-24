@@ -1,0 +1,164 @@
+input[type="text"] { background: none; }
+
+[v-cloak] { display: none; }
+
+.hide { display: none; }
+
+.link { text-decoration: none; }
+
+.button-link {
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	text-decoration: none;
+	line-height: 20px;
+	border-radius: 4px;
+	background-color: green;
+	color: #ffffff;
+	padding: 5px 10px;
+
+	&:hover {
+		background-color: lightseagreen;
+	}
+
+	&:active {
+		background-color: darkslategrey;
+	}
+}
+
+.drag:hover {
+	cursor: -webkit-grabbing !important;
+	cursor: grabbing !important;
+}
+
+.cadetblurBG { background-color: cadetblue !important; }
+
+.orangeBG { background-color: orange !important; }
+
+.header {
+	text-align: center;
+	color: #175dff;
+	margin: 30px auto 0;
+	font-size: 20px;
+}
+
+.table {
+	width: 98%;
+	margin: 20px auto 0;
+	border: 2px solid green;
+	border-collapse: collapse;
+
+	.tfoot { background-color: #ffdfab; }
+
+	.thead { background-color: #5ec0f2; }
+
+	&__row {
+		border: 2px solid green;
+
+		&:nth-child(2n+2) { background-color: #ececec; }
+	}
+
+	&__row-item {
+		border: 2px solid green;
+		text-align: center;
+	}
+}
+
+#table-friends {
+	.table__row-item {
+		&--id { width: 8%; }
+
+		&--uid { width: 10%; }
+
+		&--firstName { width: 25%; }
+
+		&--lastName { width: 25%; }
+
+		&--born { width: 12%; }
+
+		&--city { width: 20%; }
+	}
+}
+
+#table-cars {
+	.table {
+
+		&__row { margin-top: 30px; }
+
+		&__row-item {
+			&--id-drag {
+				&:hover {
+					cursor: -webkit-grab;
+					cursor: grab;
+				}
+			}
+
+			&--id { width: 8%; }
+
+			&--place { width: 8%; }
+
+			&--marka { width: 25%; }
+
+			&--model { width: 25%; }
+
+			&--color { width: 16%; }
+
+			&--number { width: 10%; }
+
+			&--opc { width: 8%; }
+		}
+
+		&__row-item-input {
+			box-sizing: border-box;
+			width: 100%;
+			border: none;
+			text-align: center;
+		}
+
+		&__row-item-button {
+			box-sizing: border-box;
+			width: 100%;
+			border: none;
+			text-align: center;
+
+			&--add {
+				background-color: #4bc54b;
+				color: #ffffff;
+
+				&:hover {
+					background-color: #09c51a;
+					text-shadow: 0 0 10px black;
+				}
+				&:active {
+					background-color: #1067c5;
+				}
+			}
+
+			&--del {
+				background-color: #c5514b;
+				color: #ffffff;
+
+				&:hover {
+					background-color: #c5291c;
+					text-shadow: 0 0 10px black;
+				}
+				&:active {
+					background-color: #c50700;
+				}
+			}
+
+			&--edit {
+				background-color: #c5c52d;
+				color: #ffffff;
+
+				&:hover {
+					background-color: #c5bd23;
+					text-shadow: 0 0 10px black;
+				}
+				&:active {
+					background-color: #c57309;
+				}
+			}
+		}
+	}
+}

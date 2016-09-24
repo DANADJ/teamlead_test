@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--SEO-->
+		<!--block description-->
+		<!--block keywords-->
+		<meta name="author" content="WEB-developer Valentin Gordienko">
+		<!--TITLE-->
+		<title>REST table & LS</title>
+		<!--FAVICONS-->
+		<link rel="icon" type="image/vdn.microsoft.ico" href="images/favicon.ico" sizes="16x16">
+		<!--CSS STYLESHEETS-->
+		<!--build:css css/vendor.min.css-->
+		<!--bower:css-->
+		<link rel="stylesheet" href="bower/normalize-css/normalize.css" />
+		<!--endbower-->
+		<!--endbuild-->
+		<!--build:css css/main.min.css-->
+		<link rel="stylesheet" href="fonts/stylesheet.css">
+		<link rel="stylesheet" href="css/main.css">
+		<!--endbuild-->
+	</head>
+	<body>
+		<!--[if lt IE8]>
+		<p class="oldBrowser">Ваш браузер устарел. Для корректного отображения сайта воспользуйтесь более современным браузером.</p>
+		<![endif]-->
+		<div id="cars" class="wrapper"><a href="/" class="button-link">VK-Friends Table</a>
+			<h1 class="header">Автомобили на стоянке (<span v-cloak>{{count}} шт.</span>)</h1>
+			<table id="table-cars" class="table">
+				<thead class="thead">
+					<tr id="table-cars__row--header" class="table__row table__row--header">
+						<th class="table__row-item table__row-item--id">№</th>
+						<th class="table__row-item table__row-item--place">Место</th>
+						<th class="table__row-item table__row-item--marka">Марка</th>
+						<th class="table__row-item table__row-item--model">Модель</th>
+						<th class="table__row-item table__row-item--color">Цвет</th>
+						<th class="table__row-item table__row-item--number">Рег.номер</th>
+						<th class="table__row-item table__row-item--opc">Действия</th>
+					</tr>
+				</thead>
+				<tfoot class="tfoot">
+					<tr id="table__row--add-car" v-cloak class="table__row table__row--add-car">
+						<td class="table__row-item table__row-item--id">{{nextItem}}</td>
+						<td class="table__row-item table__row-item--place">
+							<input id="new-car--place" type="text" placeholder="- - - -" class="table__row-item-input">
+						</td>
+						<td class="table__row-item table__row-item--marka">
+							<input id="new-car--marka" type="text" placeholder="- - - -" class="table__row-item-input">
+						</td>
+						<td class="table__row-item table__row-item--model">
+							<input id="new-car--model" type="text" placeholder="- - - -" class="table__row-item-input">
+						</td>
+						<td class="table__row-item table__row-item--color">
+							<input id="new-car--color" type="text" placeholder="- - - -" class="table__row-item-input">
+						</td>
+						<td class="table__row-item table__row-item--number">
+							<input id="new-car--number" type="text" placeholder="- - - -" class="table__row-item-input">
+						</td>
+						<td class="table__row-item table__row-item--opc">
+							<button class="table__row-item-button table__row-item-button--add">Добавить</button>
+						</td>
+					</tr>
+				</tfoot>
+				<tbody v-cloak class="tbody">
+					<tr data-index="{{$index}}" v-for="item in cars" class="table__row">
+						<td data-index="{{$index}}" class="table__row-item table__row-item--id table__row-item--id-drag">{{$index + 1}}</td>
+						<td class="table__row-item table__row-item--place">
+							<input type="text" data-index="{{$index}}" data-input="place" value="{{item.place}}" class="table__row-item-input">
+						</td>
+						<td class="table__row-item table__row-item--marka">
+							<input type="text" data-index="{{$index}}" data-input="marka" value="{{item.marka}}" class="table__row-item-input">
+						</td>
+						<td class="table__row-item table__row-item--model">
+							<input type="text" data-index="{{$index}}" data-input="model" value="{{item.model}}" class="table__row-item-input">
+						</td>
+						<td class="table__row-item table__row-item--color">
+							<input type="text" data-index="{{$index}}" data-input="color" value="{{item.color}}" class="table__row-item-input">
+						</td>
+						<td class="table__row-item table__row-item--number">
+							<input type="text" data-index="{{$index}}" data-input="number" value="{{item.number}}" class="table__row-item-input">
+						</td>
+						<td class="table__row-item table__row-item--opc">
+							<button data-index="{{$index}}" class="table__row-item-button table__row-item-button--del">Удалить</button>
+							<button data-index="{{$index}}" class="table__row-item-button table__row-item-button--edit hide">Сохранить</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!--build:js js/vendor.min.js-->
+		<script src="http://cdn.jsdelivr.net/vue/1.0.26/vue.min.js" type="text/javascript"></script>
+		<!--bower:js-->
+		<!--endbower-->
+		<!--endbuild-->
+		<!--build:js js/main.min.js-->
+		<script src="js/rest.js"></script>
+		<!--endbuild-->
+	</body>
+</html>

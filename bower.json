@@ -1,0 +1,23 @@
+{
+  "name": "gordienkovalentin.ru",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Gordienko Valentin <danadj@yandex.ru>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/DANADJ/GVPortfolio-1",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-css": "normalize.css#~3.0.3"
+  }
+}
