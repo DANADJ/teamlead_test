@@ -14,9 +14,9 @@
     2. Для редактирования порядка строк, ухватитесь за первую ячейку соответствующей строки (**№**) и перетащите на желаемую позицию
     2. После перемещения строк, изменения автоматически сохраняются в LocalStorage
 
-##Инструкция по установке
+##Инструкция по установке и dev-сборке
 
-1. git clone https://github.com/DANADJ/GVPortfolio-1.git 'your-dir'
+1. git clone https://github.com/DANADJ/teamlead_test.git 'your-dir'
 2. cd 'your-dir'
 3. bower i
 4. npm i
